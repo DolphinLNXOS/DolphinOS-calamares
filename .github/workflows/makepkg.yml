@@ -27,7 +27,7 @@ jobs:
     #     tag-name: ${{env.PR_NUMBER}}
     - name: Bump version and push tag
       uses: ChloePlanet/github-tag-action@master
-       env:
+      env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
     - name: Upload to Release
