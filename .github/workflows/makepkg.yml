@@ -6,6 +6,16 @@ permissions:
   contents: write
 
 jobs:
+   tag_repo:
+    name: Get runner id and tag the current code snapshot
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Tag and push current repo code
+        run: |
+          git tag ${{github.run_id}}
+          git push origin ${{github.run_id}}
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
   pkgbuild:
     runs-on: ubuntu-latest
     steps:
@@ -33,5 +43,5 @@ jobs:
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ steps.makepkg.outputs.new_tag }}
+        tag_name: $LATEST_TAG
         files: ${{ steps.makepkg.outputs.pkgfile0 }}
