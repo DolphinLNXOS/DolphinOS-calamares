@@ -6,7 +6,7 @@ permissions:
   contents: write
 
 jobs:
-   tag_repo:
+  tag_repo:
     name: Get runner id and tag the current code snapshot
     runs-on: ubuntu-latest
     steps:
