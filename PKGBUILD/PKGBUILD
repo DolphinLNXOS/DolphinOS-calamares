@@ -28,26 +28,24 @@ sha256sums=(
 )
 
 pkgver() {
-	cd ${srcdir}/calamares
+	cd ${srcdir}/DolphinOS-calamares
 	_ver="$(cat CMakeLists.txt | grep -m3 -e "  VERSION" | grep -o "[[:digit:]]*" | xargs | sed s'/ /./g')"
 	_git=".r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
 	printf '%s%s' "${_ver}" "${_git}"
 	sed -i -e "s|\${CALAMARES_VERSION_MAJOR}.\${CALAMARES_VERSION_MINOR}.\${CALAMARES_VERSION_PATCH}|${_ver}${_git}|g" CMakeLists.txt
 	sed -i -e "s|CALAMARES_VERSION_RC 1|CALAMARES_VERSION_RC 0|g" CMakeLists.txt
 #	sed -i -e "s|default|manjaro|g" src/branding/CMakeLists.txt
-	rm -rf ${srcdir}/calamares/.git
+	rm -rf ${srcdir}/DolphinOS-calamares/.git
 }
 
 prepare() {
-	cd ${srcdir}/calamares
+	cd ${srcdir}/DolphinOS-calamares
 	sed -i -e 's/"Install configuration files" OFF/"Install configuration files" ON/' CMakeLists.txt
-
-	git apply ../yay-support.patch
 }
 
 
 build() {
-	cd ${srcdir}/calamares
+	cd ${srcdir}/DolphinOS-calamares
 
 	mkdir -p build
 	cd build
@@ -63,7 +61,7 @@ build() {
 }
 
 package() {
-	cd ${srcdir}/calamares/build
+	cd ${srcdir}/DolphinOS-calamares/build
 	make DESTDIR="$pkgdir" install
 
 	# rename services-systemd back to services
