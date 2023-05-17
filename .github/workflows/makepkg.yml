@@ -32,8 +32,14 @@ jobs:
       run: |
         echo "Successfully created the following package archive"
         echo "Package: ${{ steps.makepkg.outputs.pkgfile0 }}"
-    - name: Upload Package Archive
-      uses: actions/upload-artifact@v3
+    # - name: Upload Package Archive
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: dolphinos-calamares-${{ github.run_id }}
+    #     path: ${{ steps.makepkg.outputs.pkgfile0 }}
+    - name: Upload to Release
+      uses: JasonEtco/upload-to-release@v0.1.1
       with:
-        name: dolphinos-calamares-${{ github.run_id }}
-        path: ${{ steps.makepkg.outputs.pkgfile0 }}
+        args: ${{ steps.makepkg.outputs.pkgfile0 }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
