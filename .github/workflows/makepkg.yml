@@ -14,20 +14,26 @@ jobs:
     #   with:
     #     pkgdir: "PKGBUILD"
     #     aurDeps: "mkinitcpio-openswap, ckbcomp"
-    - name: Archlinux PKGBUILD
-      id: makepkg
-      uses: samarthj/arch-pkgbuild-action@v2.6
+    # - name: Archlinux PKGBUILD
+    #   id: makepkg
+    #   uses: samarthj/arch-pkgbuild-action@v2.6
+    #   with:
+    #     pkgbuild_root: "PKGBUILD"
+    #     #use_git_release_version: true
+    #     install_optdepends: true
+    #     dry_run: false
+    #     setup_aur: false
+    - name: Build Package
+      uses: ouuan/pkgbuild-action@master
+      id: build-package
       with:
-        pkgbuild_root: "PKGBUILD"
-        #use_git_release_version: true
-        install_optdepends: true
-        dry_run: false
-        setup_aur: false
+        path: "PKGBUILD"
     - name: Print Package Files
       run: |
         echo "Successfully created the following package archive"
-        echo "Package: ${{ steps.makepkg.outputs.pkg0 }}"
+        echo "Package: ${{ steps.build-package.outputs.pkg0 }}"
     - name: Upload Package Archive
       uses: actions/upload-artifact@v2
       with:
-        path: ${{ steps.makepkg.outputs.pkg0 }}
+        name: pkgname-${{ github.run_id }}
+        path: ${{ steps.build-package.outputs.pkgfile }}
