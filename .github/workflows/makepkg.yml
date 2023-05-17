@@ -30,3 +30,4 @@ jobs:
       with:
         tag_name: "latest"
         files: ${{ steps.makepkg.outputs.pkgfile0 }}
+        
