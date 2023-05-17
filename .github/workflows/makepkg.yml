@@ -15,7 +15,6 @@ jobs:
         run: |
           git tag ${{github.run_id}}
           git push origin ${{github.run_id}}
-          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
   pkgbuild:
     runs-on: ubuntu-latest
     steps:
@@ -40,6 +39,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
+    - name: Get latest release tag
+      run: |
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
