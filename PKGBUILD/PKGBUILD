@@ -22,10 +22,8 @@ makedepends=('extra-cmake-modules' 'qt5-tools' 'qt5-translations' 'git' 'boost')
 
 source=(
 	"git+https://github.com/JesusXD88/DolphinOS-calamares.git"
-	"yay-support.patch"
 )
 sha256sums=(
-	'SKIP'
 	'SKIP'
 )
 
