@@ -50,7 +50,6 @@ build() {
 	mkdir -p build
 	cd build
         cmake .. \
-			  -j $(nproc) \
               -DCMAKE_BUILD_TYPE=Release \
               -DCMAKE_INSTALL_PREFIX=/usr \
               -DCMAKE_INSTALL_LIBDIR=lib \
@@ -58,7 +57,7 @@ build() {
               -DBoost_NO_BOOST_CMAKE=ON \
               -DSKIP_MODULES="dummyprocess dummypython dummycpp \
                               dummypythonqt services-openrc"      
-        make
+        make -j$(nproc)
 }
 
 package() {
