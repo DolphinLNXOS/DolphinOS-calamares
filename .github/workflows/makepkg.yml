@@ -19,7 +19,7 @@ jobs:
       uses: samarthj/arch-pkgbuild-action@v2.6
       with:
         pkgbuild_root: "PKGBUILD"
-        use_git_release_version: true
+        #use_git_release_version: true
         install_optdepends: true
         dry_run: false
         setup_aur: false
