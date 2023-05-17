@@ -33,7 +33,7 @@ jobs:
         echo "Successfully created the following package archive"
         echo "Package: ${{ steps.makepkg.outputs.pkgfile0 }}"
     - name: Upload Package Archive
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
-        name: pkgname-${{ github.run_id }}
+        name: dolphinos-calamares-${{ github.run_id }}
         path: ${{ steps.makepkg.outputs.pkgfile0 }}
