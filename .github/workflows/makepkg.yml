@@ -22,6 +22,7 @@ jobs:
         use_git_release_version: true
         install_optdepends: true
         dry_run: false
+        setup_aur: false
     - name: Print Package Files
       run: |
         echo "Successfully created the following package archive"
