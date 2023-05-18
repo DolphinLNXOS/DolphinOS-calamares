@@ -20,7 +20,7 @@ jobs:
         pkgfile0: "dolphinos-calamares"
     - name: Print Package Files
       run: |
-        echo "Successfully created the following package archive "
+        echo "Successfully created the following package archive"
         echo "Package: ${{ steps.makepkg.outputs.pkgfile0 }}"
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
