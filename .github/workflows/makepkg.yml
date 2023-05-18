@@ -26,24 +26,13 @@ jobs:
       with:
         pkgdir: "PKGBUILD"
         aurDeps: "mkinitcpio-openswap, ckbcomp"
+        pkgfile0: "dolphinos-calamares"
     - name: Print Package Files
       run: |
         echo "Successfully created the following package archive"
         echo "Package: ${{ steps.makepkg.outputs.pkgfile0 }}"
-    # - name: "Push tag"
-    #   uses: EndBug/latest-tag@latest
-    #   with:
-    #     tag-name: ${{env.PR_NUMBER}}
-    - name: Bump version and push tag
-      uses: ChloePlanet/github-tag-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        WITH_V: true
-    - name: Get latest release tag
-      run: |
-          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: $LATEST_TAG
+        tag_name: arch-package
         files: ${{ steps.makepkg.outputs.pkgfile0 }}

@@ -20,7 +20,6 @@ pkgbase = dolphinos-calamares
 	depends = solid
 	depends = yaml-cpp
 	depends = kpmcore>=4.1.0
-	depends = mkinitcpio-openswap
 	depends = boost-libs
 	depends = ckbcomp
 	depends = hwinfo
