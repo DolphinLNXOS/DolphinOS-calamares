@@ -25,11 +25,11 @@ sha256sums=(
 
 pkgver() {
 	cd ${srcdir}/DolphinOS-calamares
-	_ver="$(cat CMakeLists.txt | grep -m3 -e "  VERSION" | grep -o "[[:digit:]]*" | xargs | sed s'/ /./g')"
-	_git=".r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
-	printf '%s%s' "${_ver}" "${_git}"
-	sed -i -e "s|\${CALAMARES_VERSION_MAJOR}.\${CALAMARES_VERSION_MINOR}.\${CALAMARES_VERSION_PATCH}|${_ver}${_git}|g" CMakeLists.txt
-	sed -i -e "s|CALAMARES_VERSION_RC 1|CALAMARES_VERSION_RC 0|g" CMakeLists.txt
+	# _ver="$(cat CMakeLists.txt | grep -m3 -e "  VERSION" | grep -o "[[:digit:]]*" | xargs | sed s'/ /./g')"
+	# _git=".r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
+	# printf '%s%s' "${_ver}" "${_git}"
+	# sed -i -e "s|\${CALAMARES_VERSION_MAJOR}.\${CALAMARES_VERSION_MINOR}.\${CALAMARES_VERSION_PATCH}|${_ver}${_git}|g" CMakeLists.txt
+	# sed -i -e "s|CALAMARES_VERSION_RC 1|CALAMARES_VERSION_RC 0|g" CMakeLists.txt
 #	sed -i -e "s|default|manjaro|g" src/branding/CMakeLists.txt
 	rm -rf ${srcdir}/DolphinOS-calamares/.git
 }
