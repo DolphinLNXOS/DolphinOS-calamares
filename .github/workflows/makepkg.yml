@@ -26,4 +26,6 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         tag_name: arch-package
+        name: "Automatic CI Builds"
+        body: "Arch Linux package generated from project build"
         files: ${{ steps.makepkg.outputs.pkgfile0 }}
