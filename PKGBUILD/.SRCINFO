@@ -2,7 +2,7 @@ pkgbase = dolphinos-calamares
 	pkgdesc = Distribution-independent installer framework (development version)
 	pkgver = 3.2.62
 	pkgrel = 1
-	url = https://github.com/JesusXD88/DolphinOS-calamares.git
+	url = https://github.com/DolphinLNXOS/DolphinOS-calamares.git
 	arch = i686
 	arch = x86_64
 	license = LGPL
@@ -36,7 +36,7 @@ pkgbase = dolphinos-calamares
 	conflicts = calamares
 	conflicts = calamares-dev
 	replaces = calamares-dev
-	source = git+https://github.com/JesusXD88/DolphinOS-calamares.git
+	source = git+https://github.com/DolphinLNXOS/DolphinOS-calamares.git
 	sha256sums = SKIP
 
 pkgname = dolphinos-calamares
