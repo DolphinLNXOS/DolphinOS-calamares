@@ -48,8 +48,4 @@ build() {
 package() {
 	cd ${srcdir}/DolphinOS-calamares/build
 	make DESTDIR="$pkgdir" install
-
-	# rename services-systemd back to services
-	mv "$pkgdir/usr/lib/calamares/modules/services-systemd" "$pkgdir/usr/lib/calamares/modules/services"
-	sed -i -e 's/-systemd//' "$pkgdir/usr/lib/calamares/modules/services/module.desc"
 }
