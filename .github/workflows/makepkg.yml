@@ -6,7 +6,7 @@ permissions:
   contents: write
 
 jobs:
-  dependencies/ckbcomp:
+  dependencies-ckbcomp:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
