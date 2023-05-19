@@ -38,7 +38,7 @@ jobs:
       uses: edlanglois/pkgbuild-action@v1
       with:
         pkgdir: "PKGBUILD"
-        aurDeps: "mkinitcpio-openswap, ckbcomp"
+        aurDeps: "ckbcomp"
         pkgfile0: "dolphinos-calamares"
     - name: Print Package Files
       run: |

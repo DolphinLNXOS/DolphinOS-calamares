@@ -6,7 +6,7 @@ pkgrel=1
 pkgdesc='Distribution-independent installer framework (development version)'
 arch=('i686' 'x86_64')
 license=(GPL)
-url="https://github.com/JesusXD88/DolphinOS-calamares.git"
+url="https://github.com/DolphinLNXOS/DolphinOS-calamares.git"
 license=('LGPL')
 conflicts=('calamares' 'calamares-dev')
 provides=('calamares' 'calamares-dev')
@@ -17,7 +17,7 @@ depends=('kconfig' 'kcoreaddons' 'kiconthemes' 'ki18n' 'kio' 'solid' 'yaml-cpp' 
 makedepends=('extra-cmake-modules' 'qt5-tools' 'qt5-translations' 'git' 'boost' 'python')
 
 source=(
-	"git+https://github.com/JesusXD88/DolphinOS-calamares.git"
+	"git+https://github.com/DolphinLNXOS/DolphinOS-calamares.git"
 )
 sha256sums=(
 	'SKIP'
