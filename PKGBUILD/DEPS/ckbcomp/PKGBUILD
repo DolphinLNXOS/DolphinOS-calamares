@@ -8,8 +8,8 @@ arch=(any)
 url="http://anonscm.debian.org/cgit/d-i/console-setup.git/"
 license=('GPL2')
 depends=('perl')
-source=("http://ftp.de.debian.org/debian/pool/main/c/console-setup/console-setup_${pkgver}.tar.xz")
-sha512sums=('3821bcd5a09ab3e96252e52d1b9761debe645646d2c35fc2a46ecc940f4f2bae8a9f6a2e130d6b5dfc378cf44a8fe278bbef2d4634b4fb636393b196d8066152')
+source=("https://salsa.debian.org/installer-team/console-setup/-/archive/${pkgver}/console-setup-${pkgver}.tar.bz2")
+sha512sums=('a6bd7f7066322976e42ec10f94c789964e0fdc7f5d00a9889806107d177b0ce943cc793791534e1efb21b2b0c59e93f1ace78aad72ca13a8a60a9251094575a4')
 conflicts=(ckbcomp-bin)
 
 package() {
